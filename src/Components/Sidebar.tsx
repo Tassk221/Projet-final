@@ -1,0 +1,99 @@
+import Logo from '../assets/ByeWind Avatar.png'
+import iconOverview from '../assets/Icon (1).png'
+import iconDot from '../assets/Icon (2).png'
+import iconCourses from '../assets/Icon (3).png'
+import iconUserProfile from '../assets/Icon (5).png'
+import iconAccount from '../assets/Icon (6).png'
+import iconCorporate from '../assets/Icon (7).png'
+import iconSocial from '../assets/ChatsTeardrop.png'
+import iconChevron from '../assets/ArrowLineRight-s.png'
+import iconBlog from '../assets/Notebook.png'
+
+type MenuItem = {
+    label: string
+    icon: string
+}
+
+const favorites = ['Overview', 'Courses']
+
+const dashboardItems: MenuItem[] = [
+    { label: 'Courses', icon: iconCourses },
+]
+
+const pageItems: MenuItem[] = [
+    { label: 'User Profile', icon: iconUserProfile },
+    { label: 'Account', icon: iconAccount },
+    { label: 'Corporate', icon: iconCorporate },
+    { label: 'Blog', icon: iconBlog },
+    { label: 'Social', icon: iconSocial },
+]
+
+function SidebarItem({
+    label,
+    icon,
+    active = false,
+}: {
+    label: string
+    icon: string
+    active?: boolean
+}) {
+    return (
+        <div
+            className={
+                active
+                    ? 'flex h-9 items-center gap-3 rounded-xl bg-[#e9e9ea] px-4 dark:bg-gray-800'
+                    : 'flex h-9 items-center gap-2.5 px-2'
+            }
+        >
+            {!active && <img src={iconChevron} alt="" className="h-4 w-4 shrink-0" />}
+            <img src={icon} alt="" className="h-5 w-5 shrink-0" />
+            <span className="text-[16px]">{label}</span>
+        </div>
+    )
+}
+
+export default function Sidebar() {
+    return (
+        <aside className="fixed w-54 min-h-screen bg-white px-4 pt-6 text-[#1f1f1f] transition-colors dark:bg-gray-950 dark:text-gray-100">
+            <div className="flex items-center gap-3">
+                <img src={Logo} alt="ByeWind avatar" className="h-8 w-8 rounded-full object-cover" />
+                <p className="text-base font-medium">ByeWind</p>
+            </div>
+
+            <div className="mt-4">
+                <div className="mb-2 flex items-center justify-between px-2 text-[16px] text-[#b9b9ba] dark:text-gray-500">
+                    <span>Favorites</span>
+                    <span>Recently</span>
+                </div>
+
+                <div className="space-y-1.5">
+                    {favorites.map((item) => (
+                        <div key={item} className="flex h-8 items-center gap-3 px-2">
+                            <img src={iconDot} alt="" className="h-4 w-4 shrink-0" />
+                            <span className="text-[16px]">{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="mt-4">
+                <h2 className="mb-2 px-2 text-[16px] text-[#99999b] dark:text-gray-500">Dashboards</h2>
+                <div className="space-y-1.5">
+                    <SidebarItem label="Overview" icon={iconOverview} active />
+                    {dashboardItems.map((item) => (
+                        <SidebarItem key={item.label} label={item.label} icon={item.icon} />
+                    ))}
+                </div>
+            </div>
+
+            <div className="mt-4">
+                <h2 className="mb-2 px-2 text-[16px] text-[#99999b] dark:text-gray-500">Pages</h2>
+                <div className="space-y-1.5">
+                    {pageItems.map((item) => (
+                        <SidebarItem key={item.label} label={item.label} icon={item.icon} />
+                    ))}
+                </div>
+            </div>
+        </aside>
+    )
+}
