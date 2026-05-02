@@ -33,10 +33,10 @@ export default function App() {
         <Routes>
             {/* Routes publiques avec Header */}
             <Route element={<PublicLayout />}>
-                <Route path="/" element={<Accueil />} />
-                <Route path="/accueil" element={<Navigate to="/" replace />} />
-                <Route path="/cours" element={<Cours />} />
-                <Route path="/a-propos" element={<APropos />} />
+                <Route index element={<Accueil />} />
+                <Route path="accueil" element={<Navigate to="/" replace />} />
+                <Route path="cours" element={<Cours />} />
+                <Route path="a-propos" element={<APropos />} />
             </Route>
 
             {/* Routes sans Header */}
