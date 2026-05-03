@@ -45,7 +45,7 @@ export default function Contenu() {
                         to="/cours"
                         className="mt-8 inline-flex w-fit items-center rounded-md bg-[#e95537] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[#c6492f]"
                     >
-                        Reserver un cours d'essai
+                        Réserver un cours
                     </Link>
                 </div>
             </section>
@@ -55,7 +55,7 @@ export default function Contenu() {
                 <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
                     <div>
                         <h2 className="text-3xl font-bold leading-tight md:text-4xl">
-                            Rejoignez FitClub et transformez votre corps et votre mental
+                            Rejoignez FitClub et transformez votre corps et votre mental.
                         </h2>
                         <div className="mt-8 grid gap-4 sm:grid-cols-3">
                             {benefits.map((benefit) => (
@@ -131,7 +131,7 @@ export default function Contenu() {
                     <div>
                         <p className="font-semibold text-white">Liens</p>
                         <p className="mt-2">Politique de confidentialite</p>
-                        <p>Conditions generales</p>
+                        <p>Conditions générales</p>
                     </div>
                 </div>
             </footer>
