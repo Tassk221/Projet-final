@@ -2,8 +2,12 @@ import Navbar from "../Components/Navbar.tsx";
 import Overview from "../Components/Overview.tsx";
 import {useEffect, useState} from "react";
 
-export default function App() {
+type PageProps = {
+    isSidebarOpen: boolean;
+    onOpenSidebar: () => void;
+};
 
+export default function Page({ isSidebarOpen, onOpenSidebar }: PageProps) {
     const [isDark, setIsDark] = useState(() => {
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) {
@@ -19,12 +23,14 @@ export default function App() {
     }, [isDark]);
 
     return (
-
-        <div className={`left-54 right-0 flex flex-col min-w-auto  min-h-auto`}>
-            <Navbar isDark={isDark} onToggle={() => setIsDark((prev) => !prev)} />
-            <Overview/>
+        <div className="flex min-h-screen flex-col">
+            <Navbar
+                isDark={isDark}
+                isSidebarOpen={isSidebarOpen}
+                onOpenSidebar={onOpenSidebar}
+                onToggle={() => setIsDark((prev) => !prev)}
+            />
+            <Overview isDark={isDark} />
         </div>
-
-
-    )
+    );
 }

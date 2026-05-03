@@ -12,6 +12,7 @@
   "dependencies": {
     "@chakra-ui/charts": "^3.35.0",
     "@tailwindcss/vite": "^4.2.4",
+    "@vercel/analytics": "^2.0.1",
     "chart.js": "^4.5.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

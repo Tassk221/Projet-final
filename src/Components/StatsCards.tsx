@@ -8,9 +8,9 @@ type StatsCards = {
 
 export default function StatsCards(props :StatsCards) {
     return (
-        <div className={`${props.color} rounded-2xl p-6 md:w-auto w-60 shadow-sm flex flex-col gap-2`} >
+        <div className={`${props.color} w-full rounded-2xl p-5 shadow-sm sm:p-6`} >
             <span className="inline-flex ">{props.title}</span>
-            <div className="flex items-center gap-20">
+            <div className="mt-2 flex items-center justify-between gap-4">
                <h3 className=" font-bold text-xl">{props.value}</h3>
                <div className="flex items-center gap-2 ">
                    <span className="text-sm ">{props.percent}</span>

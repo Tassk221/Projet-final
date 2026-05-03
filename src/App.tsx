@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import Sidebar from "./Components/Sidebar";
@@ -20,10 +21,18 @@ function PublicLayout() {
 }
 
 function DashboardLayout() {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
     return (
-        <div>
-            <Sidebar />
-            <Page />
+        <div className="min-h-screen bg-white dark:bg-gray-950">
+            <Sidebar
+                isOpen={isSidebarOpen}
+                onClose={() => setIsSidebarOpen(false)}
+            />
+            <Page
+                isSidebarOpen={isSidebarOpen}
+                onOpenSidebar={() => setIsSidebarOpen(true)}
+            />
         </div>
     );
 }

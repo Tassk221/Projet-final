@@ -8,6 +8,7 @@ import iconCorporate from '../assets/Icon (7).png'
 import iconSocial from '../assets/ChatsTeardrop.png'
 import iconChevron from '../assets/ArrowLineRight-s.png'
 import iconBlog from '../assets/Notebook.png'
+import { Link } from "react-router-dom";
 
 type MenuItem = {
     label: string
@@ -52,48 +53,82 @@ function SidebarItem({
     )
 }
 
-export default function Sidebar() {
+type SidebarProps = {
+    isOpen: boolean;
+    onClose: () => void;
+};
+
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     return (
-        <aside className="fixed w-54 min-h-screen bg-white px-4 pt-6 text-[#1f1f1f] transition-colors dark:bg-gray-950 dark:text-gray-100">
-            <div className="flex items-center gap-3">
-                <img src={Logo} alt="ByeWind avatar" className="h-8 w-8 rounded-full object-cover" />
-                <p className="text-base font-medium">ByeWind</p>
-            </div>
+        <>
+            <button
+                type="button"
+                aria-label="Fermer le menu"
+                onClick={onClose}
+                className={`fixed inset-0 z-30 bg-black/40 transition-opacity lg:hidden ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}
+            />
 
-            <div className="mt-4">
-                <div className="mb-2 flex items-center justify-between px-2 text-[16px] text-[#b9b9ba] dark:text-gray-500">
-                    <span>Favorites</span>
-                    <span>Recently</span>
+            <aside
+                className={`fixed inset-y-0 left-0 z-40 w-54 overflow-y-auto bg-white px-4 pt-6 text-[#1f1f1f] transition-transform dark:bg-gray-950 dark:text-gray-100 lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+            >
+                <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                        <img src={Logo} alt="ByeWind avatar" className="h-8 w-8 rounded-full object-cover" />
+                        <p className="text-base font-medium">ByeWind</p>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-300 text-gray-700 dark:border-gray-700 dark:text-gray-200 lg:hidden"
+                        aria-label="Fermer"
+                    >
+                        <span aria-hidden="true">x</span>
+                    </button>
                 </div>
 
-                <div className="space-y-1.5">
-                    {favorites.map((item) => (
-                        <div key={item} className="flex h-8 items-center gap-3 px-2">
-                            <img src={iconDot} alt="" className="h-4 w-4 shrink-0" />
-                            <span className="text-[16px]">{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+                <div className="mt-4">
+                    <div className="mb-2 flex items-center justify-between px-2 text-[16px] text-[#b9b9ba] dark:text-gray-500">
+                        <span>Favorites</span>
+                        <span>Recently</span>
+                    </div>
 
-            <div className="mt-4">
-                <h2 className="mb-2 px-2 text-[16px] text-[#99999b] dark:text-gray-500">Dashboards</h2>
-                <div className="space-y-1.5">
-                    <SidebarItem label="Overview" icon={iconOverview} active />
-                    {dashboardItems.map((item) => (
-                        <SidebarItem key={item.label} label={item.label} icon={item.icon} />
-                    ))}
+                    <div className="space-y-1.5">
+                        {favorites.map((item) => (
+                            <div key={item} className="flex h-8 items-center gap-3 px-2">
+                                <img src={iconDot} alt="" className="h-4 w-4 shrink-0" />
+                                <span className="text-[16px]">{item}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
 
-            <div className="mt-4">
-                <h2 className="mb-2 px-2 text-[16px] text-[#99999b] dark:text-gray-500">Pages</h2>
-                <div className="space-y-1.5">
-                    {pageItems.map((item) => (
-                        <SidebarItem key={item.label} label={item.label} icon={item.icon} />
-                    ))}
+                <div className="mt-4">
+                    <h2 className="mb-2 px-2 text-[16px] text-[#99999b] dark:text-gray-500">Dashboards</h2>
+                    <div className="space-y-1.5">
+                        <SidebarItem label="Overview" icon={iconOverview} active />
+                        {dashboardItems.map((item) => (
+                            <SidebarItem key={item.label} label={item.label} icon={item.icon} />
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </aside>
+
+                <div className="mt-4">
+                    <h2 className="mb-2 px-2 text-[16px] text-[#99999b] dark:text-gray-500">Pages</h2>
+                    <div className="space-y-1.5">
+                        {pageItems.map((item) => (
+                            <SidebarItem key={item.label} label={item.label} icon={item.icon} />
+                        ))}
+                    </div>
+                </div>
+
+                <Link
+                    to="/"
+                    onClick={onClose}
+                    className="mt-6 inline-flex items-center rounded-md border border-gray-300 px-3 py-2 text-sm dark:border-gray-700"
+                >
+                    Retour Accueil
+                </Link>
+            </aside>
+        </>
     )
 }
