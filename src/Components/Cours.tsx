@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import img1 from "../assets/img (1).jpg";
 import img2 from "../assets/img (2).avif";
 import img3 from "../assets/img (3).webp";
@@ -92,7 +93,9 @@ export default function Cours() {
                                         type="button"
                                         className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-orange-300 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#181818] opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100"
                                     >
-                                        Reserver
+                                        <Link to="/login" className="w-full text-center">
+                                            Reserver
+                                        </Link>
                                     </button>
                                 </div>
                             </article>
