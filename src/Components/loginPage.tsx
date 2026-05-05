@@ -51,7 +51,7 @@ export default function LoginPage() {
             </div>
 
             <div className="hidden w-1/3 items-center justify-center bg-orange-50 lg:flex">
-                <img src={ill} alt="illustration" className="h-full w-full object-cover" />
+                <img src={ill} alt="illustration" className="h-auto w-full object-cover" />
             </div>
         </div>
     )
