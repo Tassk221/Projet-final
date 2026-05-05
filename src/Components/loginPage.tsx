@@ -39,7 +39,7 @@ export default function LoginPage() {
                         </div>
                     </div>
 
-                    <button className="mt-2 rounded-full bg-orange-500 py-2 font-semibold text-white" onClick={() => navigate("/")}>
+                    <button className="mt-2 rounded-full bg-orange-500 py-2 font-semibold text-white" onClick={() => navigate("/page-dashboard")}>
                         SE CONNECTER
                     </button>
 

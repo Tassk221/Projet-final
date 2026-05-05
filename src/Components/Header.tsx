@@ -6,7 +6,6 @@ const navItems = [
     { label: "Accueil", to: "/" },
     { label: "Nos cours", to: "/cours" },
     { label: "A propos", to: "/a-propos" },
-    { label: "Dashboard", to: "/page-dashboard" },
 ];
 
 export default function Header() {
@@ -119,25 +118,6 @@ export default function Header() {
                         onClick={() => navigate("/login")}
                     >
                         Connexion
-                    </button>
-                    <button
-                        type="button"
-                        aria-label="Profil"
-                        title="Profil"
-                        className="flex h-10 w-10 items-center justify-center rounded-md border border-white/30 transition hover:border-orange-300 hover:text-orange-300"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            className="h-5 w-5"
-                            aria-hidden="true"
-                        >
-                            <circle cx="12" cy="8" r="4" />
-                            <path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6" />
-                        </svg>
                     </button>
                 </div>
             </div>
