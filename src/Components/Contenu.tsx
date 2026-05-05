@@ -81,7 +81,7 @@ export default function Contenu() {
                         <p className="text-sm uppercase tracking-[0.2em] text-orange-300">Allons-y</p>
                         <h2 className="mt-3 text-3xl font-bold md:text-4xl">Inscrivez-vous aux mises a jour</h2>
                         <p className="mt-4 max-w-md text-sm text-gray-300">
-                            Recevez nos nouveaux cours, nos offres de lancement et les prochaines dates des séances d'essai.
+                            Recevez nos nouveaux cours, nos offres de lancement et les prochaines dates des séances.
                         </p>
                     </div>
 
