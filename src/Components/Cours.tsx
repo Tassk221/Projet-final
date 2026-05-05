@@ -117,8 +117,8 @@ export default function Cours() {
                     </div>
                     <div>
                         <p className="font-semibold text-white">Liens</p>
-                        <p className="mt-2">Politique de confidentialite</p>
-                        <p>Conditions generales</p>
+                        <p className="mt-2">Politique de confidentialité</p>
+                        <p>Conditions générales</p>
                     </div>
                 </div>
             </footer>
