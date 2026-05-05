@@ -91,7 +91,7 @@ export default function Cours() {
                                     <p className="flex-1 text-sm text-gray-300">{sportClass.description}</p>
                                     <button
                                         type="button"
-                                        className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-orange-300 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#181818] opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100"
+                                        className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-orange-300 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#181818] opacity-100 transition-opacity duration-250 md:opacity-0 md:group-hover:opacity-100"
                                     >
                                         <Link to="/login" className="w-full text-center">
                                             Reserver
