@@ -26,6 +26,45 @@ export default function APropos() {
                 </div>
             </section>
 
+            <section id="temoignages" className="bg-white py-20">
+                <div className="mx-auto max-w-6xl px-6">
+                    <p className="text-center text-sm uppercase tracking-[0.2em] text-[#a65a39]">Témoignages</p>
+                    <h2 className="mt-3 text-center text-3xl font-bold text-gray-900 md:text-4xl">
+                        Ce que disent nos membres
+                    </h2>
+
+                    <div className="mt-12 grid gap-8 md:grid-cols-3">
+                        {[
+                            {
+                                nom: "Aminata D.",
+                                texte: "Grâce à FitClub, j'ai perdu 12 kg en 4 mois. Mon coach a su adapter chaque séance à mon rythme. Je me sens transformée !",
+                                note: 5,
+                            },
+                            {
+                                nom: "Moussa K.",
+                                texte: "Un suivi sérieux et bienveillant. Les coachs sont vraiment à l'écoute et les programmes sont personnalisés. Je recommande vivement.",
+                                note: 5,
+                            },
+                            {
+                                nom: "Fatou B.",
+                                texte: "J'avais peur de me lancer mais l'équipe m'a mis à l'aise dès le début. Résultats visibles après seulement 6 semaines !",
+                                note: 4,
+                            },
+                        ].map(({ nom, texte, note }) => (
+                            <div key={nom} className="rounded-xl border border-gray-100 bg-[#f5f4f1] p-8 shadow-sm">
+                                <div className="flex gap-1 text-[#e95537]">
+                                    {Array.from({ length: 5 }).map((_, i) => (
+                                        <span key={i}>{i < note ? "★" : "☆"}</span>
+                                    ))}
+                                </div>
+                                <p className="mt-4 text-sm leading-relaxed text-gray-700">"{texte}"</p>
+                                <p className="mt-6 font-semibold text-gray-900">— {nom}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <section id="contact" className="bg-[#000000]">
                 <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2">
                     <div>
