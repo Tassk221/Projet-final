@@ -93,7 +93,7 @@ function Navbar({ onToggle, isDark, isSidebarOpen, onOpenSidebar }: NavbarProps)
                         type="button"
                         onClick={onToggle}
                         className="flex h-9 w-9 items-center justify-center rounded-md transition hover:bg-gray-200 dark:hover:bg-gray-800"
-                        aria-label={isDark ? "Desactiver le mode sombre" : "Activer le mode sombre"}
+                        aria-label={isDark ? "Désactiver le mode sombre" : "Activer le mode sombre"}
                         title={isDark ? "Passer en mode clair" : "Passer en mode sombre"}
                     >
                         <img src={button} alt="Theme" className="h-8 w-8 dark:invert" />

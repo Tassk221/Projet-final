@@ -33,8 +33,8 @@ export default function LoginPage() {
                                 type={show ? "text" : "password"}
                                 className="flex-1 text-sm outline-none"
                             />
-                            <button type="button" onClick={() => setShow(!show)} className="text-sm text-gray-400">
-                                {show ? "Hide" : "Show"}
+                            <button type="button" onClick={() => setShow(!show)} className="text-lg leading-none text-gray-400">
+                                {show ? "🙈" : "👁️"}
                             </button>
                         </div>
                     </div>
