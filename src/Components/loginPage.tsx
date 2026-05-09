@@ -97,7 +97,7 @@ export default function LoginPage() {
                                 onClick={() => setShow((previous) => !previous)}
                                 className="text-xs font-semibold text-gray-500"
                             >
-                                {show ? "Masquer" : "Afficher"}
+                                {show ? "🙈" : "👁️"}
                             </button>
                         </div>
                     </div>
@@ -121,14 +121,6 @@ export default function LoginPage() {
                         <Link to="/register" className="font-semibold text-orange-500">
                             Creer un compte
                         </Link>
-                    </p>
-
-                    <p className="text-center text-sm text-gray-400">
-                        Identifiants demo admin:{" "}
-                        <span className="font-medium text-orange-500">admin@fitclub.com / admin123</span>
-                    </p>
-                    <p className="text-center text-xs text-gray-400">
-                        Le dashboard est accessible aux utilisateurs connectes. La section clients reste admin.
                     </p>
                 </form>
             </div>
