@@ -1,56 +1,78 @@
-import Logo from '../assets/ByeWind Avatar.png'
-import iconOverview from '../assets/Icon (1).png'
-import iconDot from '../assets/Icon (2).png'
-import iconCourses from '../assets/Icon (3).png'
-import iconUserProfile from '../assets/Icon (5).png'
-import iconAccount from '../assets/Icon (6).png'
-import iconCorporate from '../assets/Icon (7).png'
-import iconSocial from '../assets/ChatsTeardrop.png'
-import iconChevron from '../assets/ArrowLineRight-s.png'
-import iconBlog from '../assets/Notebook.png'
-import { Link } from "react-router-dom";
+import Logo from "../assets/ByeWind Avatar.png";
+import iconOverview from "../assets/Icon (1).png";
+import iconDot from "../assets/Icon (2).png";
+import iconCourses from "../assets/Icon (3).png";
+import iconUserProfile from "../assets/Icon (5).png";
+import iconAccount from "../assets/Icon (6).png";
+import iconCorporate from "../assets/Icon (7).png";
+import iconSocial from "../assets/ChatsTeardrop.png";
+import iconChevron from "../assets/ArrowLineRight-s.png";
+import iconBlog from "../assets/Notebook.png";
+import { Link, NavLink } from "react-router-dom";
+import { readStoredUser, userIsAdmin } from "../lib/auth";
 
 type MenuItem = {
-    label: string
-    icon: string
-}
+    label: string;
+    icon: string;
+    to: string;
+    end?: boolean;
+};
 
-const favorites = ['Overview', 'Courses']
+const favorites: MenuItem[] = [
+    { label: "Overview", icon: iconDot, to: "/page-dashboard", end: true },
+    { label: "Courses", icon: iconDot, to: "/page-dashboard/courses" },
+];
 
 const dashboardItems: MenuItem[] = [
-    { label: 'Courses', icon: iconCourses },
-]
+    { label: "Overview", icon: iconOverview, to: "/page-dashboard", end: true },
+    { label: "Courses", icon: iconCourses, to: "/page-dashboard/courses" },
+];
 
 const pageItems: MenuItem[] = [
-    { label: 'User Profile', icon: iconUserProfile },
-    { label: 'Account', icon: iconAccount },
-    { label: 'Corporate', icon: iconCorporate },
-    { label: 'Blog', icon: iconBlog },
-    { label: 'Social', icon: iconSocial },
-]
+    { label: "User Profile", icon: iconUserProfile, to: "/page-dashboard/user-profile" },
+    { label: "Account", icon: iconAccount, to: "/page-dashboard/account" },
+    { label: "Corporate", icon: iconCorporate, to: "/page-dashboard/corporate" },
+    { label: "Blog", icon: iconBlog, to: "/page-dashboard/blog" },
+    { label: "Social", icon: iconSocial, to: "/page-dashboard/social" },
+];
+
+const adminItems: MenuItem[] = [
+    { label: "Clients", icon: iconUserProfile, to: "/page-dashboard/clients" },
+];
 
 function SidebarItem({
     label,
     icon,
-    active = false,
+    to,
+    onSelect,
+    end = false,
 }: {
-    label: string
-    icon: string
-    active?: boolean
+    label: string;
+    icon: string;
+    to: string;
+    onSelect: () => void;
+    end?: boolean;
 }) {
     return (
-        <div
-            className={
-                active
-                    ? 'flex h-9 items-center gap-3 rounded-xl bg-[#e9e9ea] px-4 dark:bg-gray-800'
-                    : 'flex h-9 items-center gap-2.5 px-2'
+        <NavLink
+            to={to}
+            end={end}
+            onClick={onSelect}
+            className={({ isActive }) =>
+                isActive
+                    ? "flex h-9 items-center gap-3 rounded-xl bg-[#e9e9ea] px-4 dark:bg-gray-800"
+                    : "flex h-9 items-center gap-2.5 rounded-xl px-2 hover:bg-gray-100 dark:hover:bg-gray-900"
             }
         >
-            {!active && <img src={iconChevron} alt="" className="h-4 w-4 shrink-0" />}
-            <img src={icon} alt="" className="h-5 w-5 shrink-0" />
-            <span className="text-[16px]">{label}</span>
-        </div>
-    )
+            {({ isActive }) => (
+                <>
+                    {!isActive && <img src={iconChevron} alt="" className="h-4 w-4 shrink-0" />}
+                    <img src={icon} alt="" className="h-5 w-5 shrink-0" />
+                    <span className="text-[16px]">{label}</span>
+                </>
+            )}
+        </NavLink>
+    );
 }
 
 type SidebarProps = {
@@ -59,6 +81,9 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+    const user = readStoredUser();
+    const adminMenuItems = userIsAdmin(user) ? adminItems : [];
+
     return (
         <>
             <button
@@ -94,10 +119,20 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
                     <div className="space-y-1.5">
                         {favorites.map((item) => (
-                            <div key={item} className="flex h-8 items-center gap-3 px-2">
-                                <img src={iconDot} alt="" className="h-4 w-4 shrink-0" />
-                                <span className="text-[16px]">{item}</span>
-                            </div>
+                            <NavLink
+                                key={item.label}
+                                to={item.to}
+                                end={item.end}
+                                onClick={onClose}
+                                className={({ isActive }) =>
+                                    `flex h-8 items-center gap-3 rounded-xl px-2 ${
+                                        isActive ? "bg-[#e9e9ea] dark:bg-gray-800" : "hover:bg-gray-100 dark:hover:bg-gray-900"
+                                    }`
+                                }
+                            >
+                                <img src={item.icon} alt="" className="h-4 w-4 shrink-0" />
+                                <span className="text-[16px]">{item.label}</span>
+                            </NavLink>
                         ))}
                     </div>
                 </div>
@@ -105,9 +140,15 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 <div className="mt-4">
                     <h2 className="mb-2 px-2 text-[16px] text-[#99999b] dark:text-gray-500">Dashboards</h2>
                     <div className="space-y-1.5">
-                        <SidebarItem label="Overview" icon={iconOverview} active />
                         {dashboardItems.map((item) => (
-                            <SidebarItem key={item.label} label={item.label} icon={item.icon} />
+                            <SidebarItem
+                                key={item.label}
+                                label={item.label}
+                                icon={item.icon}
+                                to={item.to}
+                                end={item.end}
+                                onSelect={onClose}
+                            />
                         ))}
                     </div>
                 </div>
@@ -116,7 +157,22 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                     <h2 className="mb-2 px-2 text-[16px] text-[#99999b] dark:text-gray-500">Pages</h2>
                     <div className="space-y-1.5">
                         {pageItems.map((item) => (
-                            <SidebarItem key={item.label} label={item.label} icon={item.icon} />
+                            <SidebarItem
+                                key={item.label}
+                                label={item.label}
+                                icon={item.icon}
+                                to={item.to}
+                                onSelect={onClose}
+                            />
+                        ))}
+                        {adminMenuItems.map((item) => (
+                            <SidebarItem
+                                key={item.label}
+                                label={item.label}
+                                icon={item.icon}
+                                to={item.to}
+                                onSelect={onClose}
+                            />
                         ))}
                     </div>
                 </div>
@@ -130,5 +186,5 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 </Link>
             </aside>
         </>
-    )
+    );
 }

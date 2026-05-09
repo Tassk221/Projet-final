@@ -1,7 +1,16 @@
-import { useEffect, useRef } from 'react';
-import Chart from 'chart.js/auto';
+import { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
-export default function TrafficByDevices({ isDark } : { isDark: boolean }) {
+type TotalUsersProps = {
+    isDark: boolean;
+    chartData: {
+        labels: string[];
+        thisYear: number[];
+        lastYear: number[];
+    };
+};
+
+export default function TotalUsers({ isDark, chartData }: TotalUsersProps) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
@@ -10,33 +19,52 @@ export default function TrafficByDevices({ isDark } : { isDark: boolean }) {
         }
 
         const chart = new Chart(canvasRef.current, {
-            type: 'line',
+            type: "line",
             data: {
-                labels: ['Jan', 'Fev', 'Mar','Apr','May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                labels: chartData.labels,
                 datasets: [
-                    { label: 'This Year', data: [43000, 10000, 43200,34940, 34039,30420,21109,29393,22943,39309,95765,3594], borderColor: '#4F46E5' },
-                    { label: 'Last Year', data: [53440, 33340, 52340,38393,48385,38572,22594,99284,93348,23942,34928,34953], borderColor: '#A5B4FC' },
+                    {
+                        label: "This Year",
+                        data: chartData.thisYear,
+                        borderColor: "#4F46E5",
+                        backgroundColor: "rgba(79, 70, 229, 0.15)",
+                        tension: 0.25,
+                    },
+                    {
+                        label: "Last Year",
+                        data: chartData.lastYear,
+                        borderColor: "#A5B4FC",
+                        backgroundColor: "rgba(165, 180, 252, 0.15)",
+                        tension: 0.25,
+                    },
                 ],
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: isDark ? "#fff" : "#000",
+                        },
+                    },
+                },
                 scales: {
-                    x: { ticks: { color: isDark ? '#fff' : '#000' } },
-                    y: { ticks: { color: isDark ? '#fff' : '#000' } },
-                }
+                    x: { ticks: { color: isDark ? "#fff" : "#000" } },
+                    y: { ticks: { color: isDark ? "#fff" : "#000" } },
+                },
             },
         });
+
         return () => chart.destroy();
-    }, [isDark]);
+    }, [chartData, isDark]);
 
     return (
-        <div className="rounded-2xl dark:bg-gray-800 p-4 shadow-sm mt-4">
-            <h2 className="font-bold text-lg dark:text-white mb-4">Total Users</h2>
-            <div style={{ height: '300px' }}>
+        <div className="mt-4 rounded-2xl p-4 shadow-sm dark:bg-gray-800">
+            <h2 className="mb-4 text-lg font-bold dark:text-white">Total Users</h2>
+            <div className="h-[300px]">
                 <canvas ref={canvasRef} />
             </div>
-
         </div>
     );
 }

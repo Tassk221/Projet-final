@@ -1,6 +1,7 @@
 import video from "../assets/Video.mp4";
 import img3 from "../assets/img (3).webp";
 import { Link } from "react-router-dom";
+import ContactForm from "./ContactForm";
 
 const benefits = [
     {
@@ -85,34 +86,7 @@ export default function Contenu() {
                         </p>
                     </div>
 
-                    <form className="grid gap-4" action="#">
-                        <input
-                            type="text"
-                            placeholder="Prenom"
-                            className="h-11 rounded-md border border-white/20 bg-white/5 px-4 text-sm text-white placeholder:text-gray-400 outline-none focus:border-orange-300"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Nom"
-                            className="h-11 rounded-md border border-white/20 bg-white/5 px-4 text-sm text-white placeholder:text-gray-400 outline-none focus:border-orange-300"
-                        />
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            className="h-11 rounded-md border border-white/20 bg-white/5 px-4 text-sm text-white placeholder:text-gray-400 outline-none focus:border-orange-300"
-                        />
-                        <textarea
-                            placeholder="Votre message"
-                            rows={4}
-                            className="rounded-md border border-white/20 bg-white/5 p-4 text-sm text-white placeholder:text-gray-400 outline-none focus:border-orange-300"
-                        />
-                        <button
-                            type="submit"
-                            className="h-11 rounded-md bg-[#e95537] text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[#c6492f]"
-                        >
-                            Envoyer
-                        </button>
-                    </form>
+                    <ContactForm />
                 </div>
             </section>
 

@@ -1,10 +1,14 @@
 import Navbar from "../Components/Navbar.tsx";
-import Overview from "../Components/Overview.tsx";
 import {useEffect, useState} from "react";
+import { Outlet } from "react-router-dom";
 
 type PageProps = {
     isSidebarOpen: boolean;
     onOpenSidebar: () => void;
+};
+
+export type DashboardOutletContext = {
+    isDark: boolean;
 };
 
 export default function Page({ isSidebarOpen, onOpenSidebar }: PageProps) {
@@ -30,7 +34,7 @@ export default function Page({ isSidebarOpen, onOpenSidebar }: PageProps) {
                 onOpenSidebar={onOpenSidebar}
                 onToggle={() => setIsDark((prev) => !prev)}
             />
-            <Overview isDark={isDark} />
+            <Outlet context={{ isDark } satisfies DashboardOutletContext} />
         </div>
     );
 }

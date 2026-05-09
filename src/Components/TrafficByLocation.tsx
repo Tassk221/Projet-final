@@ -1,7 +1,15 @@
-import { useEffect, useRef } from 'react';
-import Chart from 'chart.js/auto';
+import { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
-export default function TrafficByLocation({isDark}: {isDark: boolean}) {
+type TrafficByLocationProps = {
+    isDark: boolean;
+    chartData: {
+        labels: string[];
+        values: number[];
+    };
+};
+
+export default function TrafficByLocation({ isDark, chartData }: TrafficByLocationProps) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
@@ -10,13 +18,13 @@ export default function TrafficByLocation({isDark}: {isDark: boolean}) {
         }
 
         const chart = new Chart(canvasRef.current, {
-            type: 'doughnut',
+            type: "doughnut",
             data: {
-                labels: ['Sénégal', 'Guinée', 'Gambie', 'Other'],
+                labels: chartData.labels,
                 datasets: [
                     {
-                        data: [42, 23, 14, 21],
-                        backgroundColor: ['#4F46E5', '#A5B4FC', '#818CF8', '#E0E7FF'],
+                        data: chartData.values,
+                        backgroundColor: ["#4F46E5", "#A5B4FC", "#818CF8", "#E0E7FF"],
                     },
                 ],
             },
@@ -26,23 +34,22 @@ export default function TrafficByLocation({isDark}: {isDark: boolean}) {
                 plugins: {
                     legend: {
                         labels: {
-                            color: isDark ? '#fff' : '#000'
-                        }
-                    }
-                }
-            }
-
+                            color: isDark ? "#fff" : "#000",
+                        },
+                    },
+                },
+            },
         });
+
         return () => chart.destroy();
-    }, [isDark]);
+    }, [chartData, isDark]);
 
-        return (
-            <div className="dark:bg-gray-800 rounded-2xl p-4 shadow-sm mt-4">
-                <h2 className="dark:text-white font-bold text-lg mb-4">Traffic by Location</h2>
-                <div style={{ height: '300px' }}>
-                    <canvas ref={canvasRef} />
-                </div>
-
+    return (
+        <div className="mt-4 rounded-2xl p-4 shadow-sm dark:bg-gray-800">
+            <h2 className="mb-4 text-lg font-bold dark:text-white">Traffic by Location</h2>
+            <div className="h-[300px]">
+                <canvas ref={canvasRef} />
             </div>
-        );
+        </div>
+    );
 }
