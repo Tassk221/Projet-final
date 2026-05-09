@@ -1,4 +1,4 @@
-export const ADMIN_EMAIL = "admin@fitclub.com";
+export const ADMIN_EMAIL = "tassirou44@gmail.com";
 export const ADMIN_ID = "user_admin";
 
 export const getUserRole = (user) => {

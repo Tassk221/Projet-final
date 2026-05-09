@@ -37,8 +37,8 @@ app.use("/api/dashboard", authenticateSession, dashboardRoutes);
 app.use("/api/contact", contactRoutes);
 
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ message: "Erreur serveur interne." });
+  console.error("[ERROR]", err.message, err.stack);
+  res.status(500).json({ message: "Erreur serveur interne.", error: err.message });
 });
 
 app.use((req, res) => {

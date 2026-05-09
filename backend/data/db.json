@@ -4,130 +4,32 @@
       "id": "user_admin",
       "name": "Admin FitClub",
       "email": "admin@fitclub.com",
+      "role": "admin",
+      "phone": "+221000000000",
+      "birthDate": "1990-01-01",
+      "address": "SICAP Mermoz",
+      "city": "Dakar",
+      "country": "Senegal",
       "passwordHash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
-      "createdAt": "2026-05-09T00:00:00.000Z"
-    },
-    {
-      "id": "6fa63ea4-aa0f-4394-a4fd-a7ee940c29b2",
-      "name": "Nouveau User",
-      "email": "nouveau1778338891@example.com",
-      "passwordHash": "937e8d5fbb48bd4949536cd65b8d35c426b80d2f830c5c308e2cdec422ae2244",
-      "createdAt": "2026-05-09T15:01:31.693Z"
-    },
-    {
-      "id": "b120cc64-f803-48eb-a9a6-43aea3e2130a",
-      "name": "Tassirou Kondjira",
-      "email": "tassirou44@gmail.com",
-      "passwordHash": "8b7a9e29630d4e1da7d7d712615b755342cb8b67499c7dc85def65b733dc7911",
-      "createdAt": "2026-05-09T15:15:38.227Z"
-    },
-    {
-      "id": "f06cb2eb-e5df-4e5e-9669-3a2b2633245a",
-      "name": "Tassirou Kondjira",
-      "email": "tassiroukondjira0@gmail.com",
-      "passwordHash": "8b7a9e29630d4e1da7d7d712615b755342cb8b67499c7dc85def65b733dc7911",
-      "createdAt": "2026-05-09T16:53:41.711Z"
+      "createdAt": "2026-05-09T19:39:55.153Z"
     }
   ],
   "sessions": [
     {
-      "id": "f741f956-c562-4633-8375-59fddb000f43",
+      "id": "472c675a-c383-45c3-a97e-cbd2d63acc10",
       "userId": "user_admin",
-      "token": "a073a9eb2b62cf32b44aac98f7fcd3c515257101d8d6742c9a212e15dfbeb9eb",
-      "createdAt": "2026-05-09T14:02:28.940Z"
+      "token": "3c0da81004cb9413ea570e868ac89097502b5caa8df32614a36bf9f83fad8fb0",
+      "createdAt": "2026-05-09T19:39:55.157Z"
     },
     {
-      "id": "2d09f947-829a-4c91-aee6-a4b0464cc58a",
+      "id": "5cccdd02-5f12-4c1d-96a5-2d624da247a0",
       "userId": "user_admin",
-      "token": "cf9fe7c57637b137dfc08c6b64e7d9e88bac7514e3e8179409769209eea7c74f",
-      "createdAt": "2026-05-09T14:20:48.933Z"
-    },
-    {
-      "id": "154fcb01-00f2-4be4-a956-98a6beeedd6d",
-      "userId": "6fa63ea4-aa0f-4394-a4fd-a7ee940c29b2",
-      "token": "a94cef48bad55a662fe1e79827255c4aee667b8b231f23cc2fb70b69abda0d61",
-      "createdAt": "2026-05-09T15:01:31.693Z"
-    },
-    {
-      "id": "00c581eb-b0d4-4ada-872f-2b4946fa9675",
-      "userId": "6fa63ea4-aa0f-4394-a4fd-a7ee940c29b2",
-      "token": "b4d4a35fa3d046efabe29a361aafdb767574c9a5cba3700b46f3749fc6bf4dee",
-      "createdAt": "2026-05-09T15:01:31.752Z"
-    },
-    {
-      "id": "9bc21a6c-c7db-4124-a7d1-fa83dd588dd8",
-      "userId": "b120cc64-f803-48eb-a9a6-43aea3e2130a",
-      "token": "6c238de8edb7da3c6b190a19538f0e2895af18bb1fcb8e7caf1248097b0bfe9d",
-      "createdAt": "2026-05-09T15:15:38.227Z"
-    },
-    {
-      "id": "c310434b-b2e7-4d67-b34f-831330c80e14",
-      "userId": "b120cc64-f803-48eb-a9a6-43aea3e2130a",
-      "token": "098d20585a59637addfb44fefd006656d2e195850a901bdee18bd059b84371a2",
-      "createdAt": "2026-05-09T15:17:52.761Z"
-    },
-    {
-      "id": "ec5ac5bb-c2e4-46f8-a2f5-a2ed7643b952",
-      "userId": "f06cb2eb-e5df-4e5e-9669-3a2b2633245a",
-      "token": "d90e88e32a083f66f7df750741ebc2183d1cd70a55a6572fd60c1eae8c5aa21d",
-      "createdAt": "2026-05-09T16:53:41.711Z"
-    },
-    {
-      "id": "d9f788cf-0c41-4bd8-88dc-3b806277a897",
-      "userId": "user_admin",
-      "token": "5c29062adf202a8297b9dddf3db09589eabfb4419291762e3a7f2ad4a8b2da1d",
-      "createdAt": "2026-05-09T16:54:21.117Z"
-    },
-    {
-      "id": "d80ab023-5e65-4085-b84b-2d194a700ca6",
-      "userId": "user_admin",
-      "token": "b48548f0d5898c40a4e83488acd91ee09ac89ae9ea938f985268da7f43a0279b",
-      "createdAt": "2026-05-09T17:00:02.025Z"
-    },
-    {
-      "id": "958730df-d90e-43e6-b370-4d6caa6743a8",
-      "userId": "user_admin",
-      "token": "2886b0bbb98c293d74d375d20f82abd47b24b27fca04ecdabb90245e3025d3e7",
-      "createdAt": "2026-05-09T17:01:52.539Z"
-    },
-    {
-      "id": "18b867cc-7780-4fa0-9acb-74571eaed310",
-      "userId": "user_admin",
-      "token": "2087ce9b393c42aa8643ffd4e7dec918908e77e2cd68c87bf4494b4f549222ed",
-      "createdAt": "2026-05-09T17:10:29.463Z"
-    },
-    {
-      "id": "f1266beb-89d4-44fb-8e2d-73acc617e8f6",
-      "userId": "user_admin",
-      "token": "5369dc7f19a38786e4847424955f6cc855e884f79fde4f78326b788af0a3f179",
-      "createdAt": "2026-05-09T17:19:04.659Z"
-    },
-    {
-      "id": "99ecedff-a9a9-470e-8d72-d0ed8241e018",
-      "userId": "user_admin",
-      "token": "976570a13f1f71761dbec6ff93bf7924206123e08336820098436817b90d8c93",
-      "createdAt": "2026-05-09T17:19:26.252Z"
+      "token": "faf8b74d72ce6ce0d5441ab9cb4abceb7df890dbd1ade85e2386a6b70fcd0938",
+      "createdAt": "2026-05-09T19:42:53.445Z"
     }
   ],
   "resetRequests": [],
-  "contactMessages": [
-    {
-      "id": "ee271877-ac16-4cc1-a092-c3dad5ba6152",
-      "firstName": "Test",
-      "lastName": "User",
-      "email": "test@example.com",
-      "message": "Hello",
-      "createdAt": "2026-05-09T14:07:19.521Z"
-    },
-    {
-      "id": "8f43306f-1503-44c7-b9fa-0917d1da9040",
-      "firstName": "Tassirou",
-      "lastName": "Kondjira",
-      "email": "tassiroukondjira0@gmail.com",
-      "message": "Bonjour!",
-      "createdAt": "2026-05-09T14:20:07.088Z"
-    }
-  ],
+  "contactMessages": [],
   "dashboard": {
     "stats": [
       {
@@ -236,4 +138,4 @@
       ]
     }
   }
-}\n
+}

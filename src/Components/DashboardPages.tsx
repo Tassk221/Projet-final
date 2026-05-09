@@ -155,7 +155,7 @@ export function DashboardClientsPage() {
                 ) : null}
                 {!isLoading && !error && clients.length > 0 ? (
                     <div className="overflow-x-auto">
-                        <table className="w-full min-w-[1300px] text-left text-sm">
+                        <table className="w-full min-w-325 text-left text-sm">
                             <thead>
                                 <tr className="border-b border-gray-200 text-gray-500 dark:border-gray-800 dark:text-gray-400">
                                     <th className="px-2 py-3 font-medium">Nom</th>

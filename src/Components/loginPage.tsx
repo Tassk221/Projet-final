@@ -24,7 +24,7 @@ export default function LoginPage() {
             persistAuth(response.token, response.user);
             const resolvedRole =
                 response.user.role ??
-                (response.user.email === "admin@fitclub.com" || response.user.id === "user_admin"
+                (response.user.email === "tassirou44@gmail.com" || response.user.id === "user_admin"
                     ? "admin"
                     : "client");
             sessionStorage.setItem(
